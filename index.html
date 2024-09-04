@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <script>
+    //fade 슬라이드
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const images = document.querySelectorAll("#back img"); 
+            let z = 1;
+            const back = () => {
+                images.forEach(  i  =>  i.style.opacity = 0   );
+                images[z].style.opacity = 1 ;
+                z++;
+                if(z == 5) z = 0;
+            }
+
+            setInterval( back , 2500 );
+
+        });///////////end
+    </script>
+    <style>
+
+/* 한글폰트 */
+@font-face {
+    font-family: 'PTBandocheB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/PTBandocheB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+html {scroll-behavior: smooth;}
+body {color: #494949;}
+a {display: block; color: black; text-decoration: none;}
+img {display: block; max-width: 100%;}
+
+#layout {width:1000px; height: 3500px; margin:auto; position:relative; overflow:hidden; background: #bee7e9; }
+
+/*back fade 이미지*/
+#back {position: relative; margin-top: 20px; }
+#back h2 {display: none;}
+#back img {position: absolute; top: 0; left: 0; opacity: 0; width: 100%; transition: opacity 2.5s;}
+#back img:first-of-type {position: relative; opacity: 1;}
+
+/* 영업시간 공지 배너 */
+#time p {z-index: 1; position: absolute; background: rgba(0,0,0, 0.45); color: white;
+padding: 30px 30px; border-radius: 50px; font-size: 1.2rem; margin-left: 70%; margin-top: 65%;
+}
+
+/* 이벤트공지 이미지 */
+#event { padding-top:160px ; width: 90%; align-items: center; padding-left: 90px;}
+
+/*상단*/
+#ins {width: 3%; top: 20px; right: 135px; position: absolute; text-align: center;}
+#fb {width: 3%; top: 20px; right: 85px; position: absolute; text-align: center;}
+#yt {width: 3%; top: 20px; right: 35px; position: absolute; text-align: center;}
+
+header {height: 200px; display: flex; background: #bee7e9;
+    padding: 20px 80px 20px 30px; position: relative; z-index: 2;  }
+
+#logo {padding-right: 30px;  }
+
+header ul { flex: 1; list-style: none; display: flex; text-align: center; margin-top: 70px; }
+header li {flex: 1; }
+
+
+/*메뉴호버*/
+#menuBg {background: rgba(255,255,255 , 0.9); position: absolute; width: 100%; height: 0; top: 140px; z-index: -1; box-shadow: 0 2px 2px rgba(0,0,0,0.3); transition: 0.5s; box-shadow:0 1px 2px rgba(0,0,0, 0.5);}
+
+header li .submenu       {transition: 0.5s;}
+header li:hover .mainmenu {background:#192f60da; color:white; font-weight:bold; }
+header li:hover .submenu {height:115px; }
+header ul:hover ~ #menuBg {height: 120px;}
+
+/*메인메뉴*/
+.mainmenu       {font-size: 1.2rem; font-weight:bold; padding:4px 0 7px; }
+.mainmenu:hover {background:#004f8a ; color:white; }
+
+/*서브메뉴*/
+.submenu            {background: rgba(255,255,255 , 0.75); height:0; overflow: hidden; }
+.submenu a          {padding:3px 0 6px;}
+.submenu a:hover    {color: #192f60; font-weight: bold; }
+
+
+
+
+/* 메인1 */
+main { color:black ; }
+#menu1 {margin-top: 200px; padding-top: 100px;  text-align: center; border-top: 2px solid #192f60; }
+#menu1 h2 {text-align:center; font-weight:bold; font-size: 2.2rem; color: #192f60; margin-bottom: 100px;}
+
+#signature {display:flex; }
+#signature img {width: 80%; margin-left: 25px; border-radius:10px; transition:0.5s; }
+#signature img:hover {transform:scale(1.15);}
+
+#signature p { text-align:center; color:#192f60; font-size:1.2rem; margin-top: 30px; 
+    font-family: 'PTBandocheB';}
+
+
+
+/* 메인2 */
+#menu2 {margin-top: 200px; margin-bottom: 200px;  text-align: center;  }
+#menu2 h2 {text-align:center; font-weight:bold; font-size: 2.2rem; color: #192f60; margin-bottom: 100px;}
+/* +more */
+#menu2>a {position: absolute; bottom: 880px; left: 470px;}
+#menu2>a:hover {font-weight: bold;}
+
+#dessert {display:flex; }
+#dessert img {width: 80%; margin-left: 25px; border-radius:10px; transition:0.4s; }
+#dessert img:hover {transform:scale(1.15);}
+
+#dessert p { text-align:center; color:#192f60; font-size:1.2rem; margin-top: 30px;
+    font-family: 'PTBandocheB';}
+
+
+
+/*하단*/
+footer {padding: 20px; background: #bee7e9; border-top: 2px solid #192f60;}
+footer ul {list-style: none; display: flex; line-height: 160%; font-size: 0.9rem;}
+
+footer li:nth-child(1) {flex: 1;}
+footer li:nth-child(2) {flex: 1;}
+footer a {display: inline;}
+
+    </style>
+</head>
+<body>
+    <div id="layout">
+        
+        <header>
+            <div id="ins"><a href="https://www.instagram.com/overdeep_yeonnam/"><img src="images/instagram.png" alt="인스타 바로가기"></a></div>
+            <div id="fb"><a href="#"><img src="images/facebook.png" alt="페이스북 바로가기"></a></div>
+            <div id="yt"><a href="#"><img src="images/youtube.png" alt="유튜브 바로가기"></a></div>
+
+
+            <h1><a href="index.html" id="logo"> <img src="images/logo.png" alt="로고"></a></h1>
+            <ul>
+                <li>
+                    <a href="about.html" class="mainmenu">ABOUT</a>
+                </li>
+                <li>
+                    <a href="menu.html" class="mainmenu">MENU</a>
+                <nav class="submenu">
+                    <a href="menu.html">Signature</a>
+                    <a href="menu.html#best">Best</a>
+                    <a href="menu.html#dessert1">Dessert</a>
+                </nav>
+                </li>
+                <li>
+                    <a href="gallery.html" class="mainmenu">GALLERY</a>
+                    
+                </li>
+                <li>
+                    <a href="notice.html" class="mainmenu">NOTICE</a>
+                    <nav class="submenu">
+                        <a href="notice.html">공지사항</a>
+                        <a href="notice.html #map">오시는 길</a>
+                        
+                    </nav>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <section id="time">
+            <p>Tue - Sun 11:00 - 21:00</p>
+            
+            </section>
+            <div id="back">
+				<img src="images/back5.jpg" alt="배경사진5">
+				<img src="images/back4.jpg" alt="배경사진4">
+				<img src="images/back3.jpg" alt="배경사진3">
+				<img src="images/back2.jpg" alt="배경사진2">
+				<img src="images/back1.jpg" alt="배경사진1">
+			</div>  
+            <div id="event">
+                <a href="#"><img src="images/event.png" alt="이벤트이미지"></a>
+            </div>
+            
+        </main>
+        <section id="menu1">
+            <h2>🇸 🇮 🇬 🇳 🇦 🇹 🇺 🇷 🇪 </h2>
+            <div id="signature">
+                <div id="s1">
+                <a href="#"><img src="images/sig1.jpg" alt="파도크림라떼"></a>
+                <p>파도크림라떼</p>   
+                </div>
+                <div id="s2">
+                <a href="#"><img src="images/sig2.jpg" alt="딥블루레몬에이드"></a>
+                <p>딥블루레몬에이드</p>    
+                </div>
+                <div id="s3">
+                <a href="#"><img src="images/sig3.jpg" alt="솔티드카라멜 라떼"></a>
+                <p>솔티드카라멜라떼</p>    
+                </div>
+                <div id="s4">
+                <a href="#"><img src="images/sig4.jpg" alt="크림브륄레 라떼"></a>
+                <p>크림브릴레라떼</p>    
+                </div>
+                
+                
+                
+            </div>
+        </section>
+        <section id="menu2">
+            <h2>🇩 🇪 🇸 🇸 🇪 🇷 🇹 </h2>
+            <a href="menu.html#best">+🇲🇴🇷🇪</a>
+            <div id="dessert">
+                <div id="d1">
+                <a href="#"><img src="images/de1.jpg" alt="딥초코 페스츄리"></a>
+                <p>딥초코 페스츄리</p>
+                </div>
+                <div id="d2">
+                <a href="#"><img src="images/de2.jpg" alt="크림라즈베리 페스츄리"></a>
+                <p>크림라즈베리 페스츄리</p>
+                </div>
+                <div id="d3">
+                <a href="#"><img src="images/de3.jpg" alt="베리베리마들렌"></a>
+                <p>베리베리마들렌</p>
+                </div>
+                <div id="d4">
+                <a href="#"><img src="images/de4.jpg" alt="콘크림마들렌"></a>
+                <p>콘크림마들렌</p>
+                </div>
+                
+                
+                
+                
+            </div>
+        </section>
+        <footer>
+            <ul>
+                <li>
+                    <a href="#">이용약관</a><br>
+                    <a href="#">개인정보처리방침</a>
+                </li>
+
+                <li>
+                    상호명: 오버딥<br>
+                    주소: 서울 마포구 성미산로 149-8 2, 3층, 루프탑<br>
+                </li>
+
+                <li>
+                    전화: <a href="tel:0507-1474-044">0507-1474-044</a><br>
+                    Copyright ⓒ 어쩌고저쩌고 Reserved.
+
+                </li>
+                
+            </ul>
+        
+        </footer>
+
+    </div>
+</body>
+</html>

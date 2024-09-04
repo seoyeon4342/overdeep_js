@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTICE page</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+            const notili = document.querySelectorAll("#noti li");
+            const popup = [...document.getElementsByClassName("popup")];
+            const btn = document.querySelectorAll("popup button");
+            
+
+
+            const popshow = i => {
+                popup.forEach(j => j.style.display ="none");
+                if (i != null) popup[i].style.display ="block"
+                
+                
+                
+            }
+
+            notili.forEach( (i, j) => {
+                i.children[0].addEventListener("click", () => {
+                    popshow(j);
+                });
+            });
+
+            popup.forEach((i,j) => {
+                i.getElementsByTagName("button")[0].addEventListener("click", () => {
+                    popup[j].style.display = "none";
+                });
+
+            });
+
+        });
+    </script>
+   
+    <style>
+   @font-face {
+    font-family: 'PTBandocheB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/PTBandocheB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html {scroll-behavior: smooth;}
+    body {color: #494949;}
+    a {display: block; color: black; text-decoration: none;}
+    img {display: block; max-width: 100%;}
+
+    #layout {max-width:1000px; height: 3500px; margin:auto; position:relative; overflow:hidden; background: #bee7e9; }
+
+    /*상단*/
+#ins {width: 3%; top: 20px; right: 135px; position: absolute; text-align: center;}
+#fb {width: 3%; top: 20px; right: 85px; position: absolute; text-align: center;}
+#yt {width: 3%; top: 20px; right: 35px; position: absolute; text-align: center;}
+
+header {height: 200px; display: flex; background: #bee7e9;
+    padding: 20px 80px 20px 30px; position: relative; z-index: 2;  }
+
+#logo {padding-right: 30px;  }
+
+header ul { flex: 1; list-style: none; display: flex; text-align: center; margin-top: 70px; }
+header li {flex: 1; }
+
+
+/*메뉴호버*/
+#menuBg {background: rgba(255,255,255 , 0.9); position: absolute; width: 100%; height: 0; top: 140px; z-index: -1; box-shadow: 0 2px 2px rgba(0,0,0,0.3); transition: 0.5s; box-shadow:0 1px 2px rgba(0,0,0, 0.5);}
+
+header li .submenu       {transition: 0.5s;}
+header li:hover .mainmenu {background:#192f60da; color:white; font-weight:bold; }
+header li:hover .submenu {height:115px; }
+header ul:hover ~ #menuBg {height: 120px;}
+
+/*메인메뉴*/
+.mainmenu       {font-size: 1.2rem; font-weight:bold; padding:4px 0 7px; }
+.mainmenu:hover {background:#004f8a ; color:white; }
+
+/*서브메뉴*/
+.submenu            {background: rgba(255,255,255 , 0.75); height:0; overflow: hidden; }
+.submenu a          {padding:3px 0 6px;}
+.submenu a:hover    {color: #192f60; font-weight: bold; }
+
+/*이미지*/
+#back {margin-top: 20px; }
+#back img {width: 100%;}
+
+#about img {width: 100%; padding-top: 130px;}
+
+/*공지사항 (팝업) */
+
+#notice {flex-direction: row; margin:100px 100px 100px 100px;  }
+#noti {flex-direction:column; background:#ffffff; border-radius:20px ; color:black; padding: 110px; }
+#notice h1 {font-family: 'PTBandocheB';}
+#noti ol {list-style: none; line-height: 200%; padding-top: 20px;}
+#noti li {border-bottom: 2px dashed #666; }
+#noti a {display: inline; letter-spacing: 1px;}
+#noti a:hover {text-decoration: underline;}
+#noti span {float: right;letter-spacing: 0.8px;}
+
+
+.popup {margin:auto; background:rgba(0,0,0,0.8); position:fixed; top:0; left:0; z-index:2; width:100%; height:100vh; display:none; color:black;}
+.popup section { position:absolute; top: 20%; left: 20%; background:white; margin:auto; text-align:center; width:800px; height:800px; padding:30px; align-content: center; border-radius: 30px;}
+.popup button {font-size:12pt; float: right; font-family: 'PTBandocheB'; z-index:1; }
+.popup p {color:black; font-size:13pt; font-family: 'PTBandocheB'; line-height: 130%;}
+.popup section img {width:500px; padding: 30px; margin-left: 120px;}
+
+
+
+/* 오시는 길 */
+#map { flex-direction: column;
+     background:#ffffff; border-radius:20px ; color:black; padding: 110px; margin-top: 100px;}
+#map h2 {margin-bottom: 20px; font-family: 'PTBandocheB';}
+#map p {font-family: 'PTBandocheB'; font-size: 1.1rem; line-height: 150%;}
+
+	
+
+
+
+
+
+/*하단*/
+footer {padding: 20px; background: #bee7e9; border-top: 2px solid #192f60;}
+footer ul {list-style: none; display: flex; line-height: 160%; font-size: 0.9rem;}
+
+footer li:nth-child(1) {flex: 1;}
+ footer li:nth-child(2) {flex: 1;}
+footer a {display: inline;}
+
+    </style>
+</head>
+<body>
+    <div id="layout">
+        
+        <header>
+            <div id="ins"><a href="https://www.instagram.com/overdeep_yeonnam/"><img src="images/instagram.png" alt="인스타 바로가기"></a></div>
+            <div id="fb"><a href="#"><img src="images/facebook.png" alt="페이스북 바로가기"></a></div>
+            <div id="yt"><a href="#"><img src="images/youtube.png" alt="유튜브 바로가기"></a></div>
+
+            <h1><a href="index.html" id="logo"> <img src="images/logo.png" alt="로고"></a></h1>
+            <ul>
+                <li>
+                    <a href="about.html" class="mainmenu">ABOUT</a>
+                </li>
+                <li>
+                    <a href="menu.html" class="mainmenu">MENU</a>
+                <nav class="submenu">
+                    <a href="menu.html">Signature</a>
+                    <a href="menu.html#best">Best</a>
+                    <a href="menu.html#dessert1">Dessert</a>
+                </nav>
+                </li>
+                <li>
+                    <a href="gallery.html" class="mainmenu">GALLERY</a>
+                    
+                </li>
+                <li>
+                    <a href="notice.html" class="mainmenu">NOTICE</a>
+                    <nav class="submenu">
+                        <a href="notice.html">공지사항</a>
+                        <a href="notice.html #map">오시는 길</a>
+                        
+                    </nav>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <div id="back">
+				<img src="images/back1.jpg" alt="배경사진1">
+			</div> 
+            <div id="about">
+                <img src="images/notice.png" alt="공지사항 이미지">
+            </div>
+            <div id="notice">
+                <section id="noti">
+                    <h2>NOTICE</h2>
+                    <ol>
+                        <li>
+                            <a href="#"><strong>알림</strong> 설 연휴 정상영업합니다 ❤ </a>
+                            <span>2024.02.11</span>
+                        </li>
+                        <li>
+                            <a href="#"><strong>EVENT</strong> 메리 블루 크리스마스!!</a>
+                            <span>2023.11.30</span>
+                        </li>
+                        <li>
+                            <a href="#"><strong>알림</strong> 9월 1일 (금) 정식오픈</a>
+                            <span>2023.08.29</span>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><strong>알림</strong> 8.20 ~ 8.28 오버딥 연남 가오픈</a>
+                            <span>2023.08.20</span>
+                        </li>
+                       
+                                               
+                    </ol>
+                    
+                    
+                </section>
+                <div class="popup">
+                    <section>
+                        <span>2024.02.11</span><br><br>
+                        <p> 설 연휴 정상영업합니다 ❤</p><br>
+                        <img src="images/pop0.png" alt="팝업이미지0">
+                        <p>설 연휴 12일까지 정상영업합니다!! 새해 복 많이 받으세요!!</p><br>
+                        
+                        <button type="button">close</button>
+                    </section>
+                </div>
+                <div class="popup">
+                    <section>
+                        <span>2023.11.30</span><br><br>
+                        <p> 메리 블루 크리스마스!!</p>
+                        <img src="images/pop1.jpg" alt="팝업이미지"><br>
+                        <p>메리 블루 크리스마스!! 오버딥의 깜짝 이벤트!! <br>
+                           12월 한 달 동안 오버딥에도 크리스마스가 왔어요 :)<br>
+                           새로운 분위기의 카페에서 만나요 !! 12월 25일 월요일 크리스마스 영업합니다 :)</p><br>
+                        <button type="button">close</button>
+                    </section>
+                </div>
+                <div class="popup">
+                    <section>
+                        <span>2023.08.29</span><br><br>
+                        <p> 9월 1일 (금) 정식 오픈</p>
+                        <img src="images/pop2.jpg" alt="팝업이미지2"><br>
+                        <p>연남동 오버딥카페가 가오픈을 끝내고 <br>
+                           9월1일 루프탑과 함께 정식오픈합니다 !!</p><br>
+                        <button type="button">close</button>
+                    </section>
+                </div>
+                <div class="popup">
+                    <section>
+                        <span>2023.08.20</span><br><br>
+                        <p> 8.20 ~ 8.28 오버딥 연남 가오픈</p>
+                        <img src="images/pop3.jpg" alt="팝업이미지3"><br>
+                        <p>오버딥 카페가 8.20 ~ 8.28 가오픈을 진행합니다 !!</p><br>
+                        <button type="button">close</button>
+                    </section>
+                </div>
+                <section id="map">
+                    <h2>오시는 길</h2>
+                    <p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12650.36982344722!2d126.91263277093343!3d37.56466456146161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99a2f886ad93%3A0xc6c94cebf65185aa!2z7Jik67KE65Sl!5e0!3m2!1sko!2skr!4v1722915125414!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br><br>
+
+                        📍 대중교통 이용시 <br><br>
+                        연남동주민센터(정류장)에서 하차하신뒤 신호등 건너서<br>
+                        우측 골목으로 들어가신 다음 쭉 직진하면 우측에 위치해있습니다.<br><br><br>
+
+                        📍 자차 이용시<br><br>
+                        '서울 마포구 성미산로 149-8 2' 네비게이션 검색후 오시면 됩니다.<br><br><br>
+
+                        ※ 주차안내<br>
+                        주차장이 완비되어있지 않습니다. 근처 공용주차장 이용 부탁드립니다.<br>
+                        연남3 공영주차장 / 연남4 공영주차장
+                    </p>
+                </section>
+            </div>
+        </main>
+            <footer>
+                <ul>
+                    <li>
+                        <a href="#">이용약관</a><br>
+                        <a href="#">개인정보처리방침</a>
+                    </li>
+    
+                    <li>
+                        상호명: 오버딥<br>
+                        주소: 서울 마포구 성미산로 149-8 2, 3층, 루프탑<br>
+                    </li>
+    
+                    <li>
+                        전화: <a href="tel:0507-1474-044">0507-1474-044</a><br>
+                        Copyright ⓒ 어쩌고저쩌고 Reserved.
+    
+                    </li>
+                    
+                </ul>
+            
+            </footer>
+        </div> 
+</body>
+</html>

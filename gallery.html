@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY page</title>
+   
+    <style>
+    /* 한글폰트 */
+    @font-face {
+    font-family: 'PTBandocheB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/PTBandocheB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html {scroll-behavior: smooth;}
+    body {color: #494949;}
+    a {display: block; color: black; text-decoration: none;}
+    img {display: block; max-width: 100%;}
+
+    #layout {width:1000px; height: 2500px; margin:auto; position:relative; overflow:hidden; background: #bee7e9; }
+
+    /*상단*/
+#ins {width: 3%; top: 20px; right: 135px; position: absolute; text-align: center;}
+#fb {width: 3%; top: 20px; right: 85px; position: absolute; text-align: center;}
+#yt {width: 3%; top: 20px; right: 35px; position: absolute; text-align: center;}
+
+header {height: 200px; display: flex; background: #bee7e9;
+    padding: 20px 80px 20px 30px; position: relative; z-index: 2;  }
+
+#logo {padding-right: 30px;  }
+
+header ul { flex: 1; list-style: none; display: flex; text-align: center; margin-top: 70px; }
+header li {flex: 1; }
+
+
+/*메뉴호버*/
+#menuBg {background: rgba(255,255,255 , 0.9); position: absolute; width: 100%; height: 0; top: 140px; z-index: -1; box-shadow: 0 2px 2px rgba(0,0,0,0.3); transition: 0.5s; box-shadow:0 1px 2px rgba(0,0,0, 0.5);}
+
+header li .submenu       {transition: 0.5s;}
+header li:hover .mainmenu {background:#192f60da; color:white; font-weight:bold; }
+header li:hover .submenu {height:115px; }
+header ul:hover ~ #menuBg {height: 120px;}
+
+/*메인메뉴*/
+.mainmenu       {font-size: 1.2rem; font-weight:bold; padding:4px 0 7px; }
+.mainmenu:hover {background:#004f8a ; color:white; }
+
+/*서브메뉴*/
+.submenu            {background: rgba(255,255,255 , 0.75); height:0; overflow: hidden; }
+.submenu a          {padding:3px 0 6px;}
+.submenu a:hover    {color: #192f60; font-weight: bold; }
+
+/*이미지*/
+#menu {display: flex;  align-items: center;}
+#menu img {width: 100%; padding-top: 150px;}
+
+
+
+
+
+main { color:black ; }
+#gallery p {text-align: center; font-size: 1.4rem; font-family: 'PTBandocheB'; line-height: 180%;
+margin-top: 100px; font-weight: bold;}
+/* 이미지 */
+#photo{display:flex; flex-wrap:wrap; padding:25px 20px; margin-top: 80px; margin-bottom: 120px;}
+#photo div{width:280px; margin:20px; overflow:hidden; position:relative;}
+#photo img{width:380px; transition:0.5s;}
+#photo img:hover{transform:scale(1.2);}
+
+
+
+
+
+
+/*하단*/
+footer {padding: 20px; background: #bee7e9; border-top: 2px solid #192f60;}
+footer ul {list-style: none; display: flex; line-height: 160%; font-size: 0.9rem;}
+
+footer li:nth-child(1) {flex: 1;}
+ footer li:nth-child(2) {flex: 1;}
+footer a {display: inline;}
+
+    </style>
+</head>
+<body>
+    <div id="layout">
+        
+        <header>
+            <div id="ins"><a href="https://www.instagram.com/overdeep_yeonnam/"><img src="images/instagram.png" alt="인스타 바로가기"></a></div>
+            <div id="fb"><a href="#"><img src="images/facebook.png" alt="페이스북 바로가기"></a></div>
+            <div id="yt"><a href="#"><img src="images/youtube.png" alt="유튜브 바로가기"></a></div>
+
+            <h1><a href="index.html" id="logo"> <img src="images/logo.png" alt="로고"></a></h1>
+            <ul>
+                <li>
+                    <a href="about.html" class="mainmenu">ABOUT</a>
+                </li>
+                <li>
+                    <a href="menu.html" class="mainmenu">MENU</a>
+                <nav class="submenu">
+                    <a href="menu.html">Signature</a>
+                    <a href="menu.html#best">Best</a>
+                    <a href="menu.html#dessert1">Dessert</a>
+                </nav>
+                </li>
+                <li>
+                    <a href="gallery.html" class="mainmenu">GALLERY</a>
+                    
+                </li>
+                <li>
+                    <a href="notice.html" class="mainmenu">NOTICE</a>
+                    <nav class="submenu">
+                        <a href="notice.html">공지사항</a>
+                        <a href="notice.html #map">오시는 길</a>
+                        
+                    </nav>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <div id="menu">
+                <img src="images/gallery.png" alt="갤러리이미지">
+            </div>
+            <div id="gallery">
+                <section>
+                    <p id="type">
+                       
+                    </p>
+                    <script>
+                        const type = document.getElementById("type");
+                        const x = "포토스팟이 가득한 오버딥을 미리 체험해보세요!";
+                        let i = 0;
+                        
+                
+                        const typing = () => {            
+                            if( i < x.length ){
+                                type.textContent += x[i];
+                                console.log(x[i]);          
+                                i++;
+                                setTimeout( typing , 100 );
+                            }
+                        }
+                        
+                        setTimeout( typing , 300 );
+                    </script>
+                    <div id="photo">
+                        <div><img src="images/small1.jpg" alt="갤러리작은사진1"></div>
+                        <div><img src="images/small2.jpg" alt="갤러리작은사진2"></div>
+                        <div><img src="images/small3.jpg" alt="갤러리작은사진3"></div>
+                        <div><img src="images/small4.jpg" alt="갤러리작은사진4"></div>
+                        <div><img src="images/small5.jpg" alt="갤러리작은사진5"></div>
+                        <div><img src="images/small6.jpg" alt="갤러리작은사진6"></div>
+                        <div><img src="images/small7.jpg" alt="갤러리작은사진7"></div>
+                        <div><img src="images/small8.jpg" alt="갤러리작은사진8"></div>
+                        <div><img src="images/small9.jpg" alt="갤러리작은사진9"></div>
+                    </div>
+                </section>
+            </div>
+
+
+            
+           
+            
+            
+        </main>
+            <footer>
+                <ul>
+                    <li>
+                        <a href="#">이용약관</a><br>
+                        <a href="#">개인정보처리방침</a>
+                    </li>
+    
+                    <li>
+                        상호명: 오버딥<br>
+                        주소: 서울 마포구 성미산로 149-8 2, 3층, 루프탑<br>
+                    </li>
+    
+                    <li>
+                        전화: <a href="tel:0507-1474-044">0507-1474-044</a><br>
+                        Copyright ⓒ 어쩌고저쩌고 Reserved.
+    
+                    </li>
+                    
+                </ul>
+            
+            </footer>
+        </div> 
+</body>
+</html>
